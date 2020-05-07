@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java Collection - HashMap And HashSet | Asahina Blog</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="icon" href="/ok_favicon.ico">
+    <meta name="description" content="For Tech Blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.23aadbf3.css" as="style"><link rel="preload" href="/assets/js/app.7ef487d0.js" as="script"><link rel="preload" href="/assets/js/3.9dac7fba.js" as="script"><link rel="preload" href="/assets/js/1.7a264106.js" as="script"><link rel="preload" href="/assets/js/49.48309789.js" as="script"><link rel="prefetch" href="/assets/js/10.1e68f537.js"><link rel="prefetch" href="/assets/js/100.09e0f01f.js"><link rel="prefetch" href="/assets/js/101.beda3d34.js"><link rel="prefetch" href="/assets/js/102.5640de2b.js"><link rel="prefetch" href="/assets/js/103.4731ba51.js"><link rel="prefetch" href="/assets/js/104.c2a02038.js"><link rel="prefetch" href="/assets/js/105.443c4ad1.js"><link rel="prefetch" href="/assets/js/106.0caa8ffc.js"><link rel="prefetch" href="/assets/js/107.cb0068c6.js"><link rel="prefetch" href="/assets/js/108.909db99b.js"><link rel="prefetch" href="/assets/js/109.dde77e6f.js"><link rel="prefetch" href="/assets/js/11.eb7ce0d8.js"><link rel="prefetch" href="/assets/js/110.3b700db9.js"><link rel="prefetch" href="/assets/js/111.d158c36d.js"><link rel="prefetch" href="/assets/js/112.f8ad71e3.js"><link rel="prefetch" href="/assets/js/113.a3a646bd.js"><link rel="prefetch" href="/assets/js/114.3f9dd18a.js"><link rel="prefetch" href="/assets/js/115.497cc9cb.js"><link rel="prefetch" href="/assets/js/116.21554bd9.js"><link rel="prefetch" href="/assets/js/117.ec9608a8.js"><link rel="prefetch" href="/assets/js/118.1544a8f9.js"><link rel="prefetch" href="/assets/js/119.553a82fa.js"><link rel="prefetch" href="/assets/js/12.98a440dd.js"><link rel="prefetch" href="/assets/js/120.21ca1356.js"><link rel="prefetch" href="/assets/js/121.ee454759.js"><link rel="prefetch" href="/assets/js/122.68de6272.js"><link rel="prefetch" href="/assets/js/123.439c2290.js"><link rel="prefetch" href="/assets/js/124.3b0088be.js"><link rel="prefetch" href="/assets/js/125.6876aa5f.js"><link rel="prefetch" href="/assets/js/126.24035f39.js"><link rel="prefetch" href="/assets/js/127.9f6dbda9.js"><link rel="prefetch" href="/assets/js/128.cd4fc87e.js"><link rel="prefetch" href="/assets/js/129.37b53e36.js"><link rel="prefetch" href="/assets/js/13.c6b94fde.js"><link rel="prefetch" href="/assets/js/130.ee8cbd75.js"><link rel="prefetch" href="/assets/js/131.1ca10788.js"><link rel="prefetch" href="/assets/js/132.4c2581f6.js"><link rel="prefetch" href="/assets/js/133.1752152b.js"><link rel="prefetch" href="/assets/js/14.e6e35416.js"><link rel="prefetch" href="/assets/js/15.1948de1f.js"><link rel="prefetch" href="/assets/js/16.4cfb8e05.js"><link rel="prefetch" href="/assets/js/17.f7720c9b.js"><link rel="prefetch" href="/assets/js/18.bc3ab146.js"><link rel="prefetch" href="/assets/js/19.10222210.js"><link rel="prefetch" href="/assets/js/20.50dfe5d7.js"><link rel="prefetch" href="/assets/js/21.c0e33b4f.js"><link rel="prefetch" href="/assets/js/22.d3517d06.js"><link rel="prefetch" href="/assets/js/23.f337c3f2.js"><link rel="prefetch" href="/assets/js/24.0e0203ac.js"><link rel="prefetch" href="/assets/js/25.32bc7249.js"><link rel="prefetch" href="/assets/js/26.0b66140f.js"><link rel="prefetch" href="/assets/js/27.24f11eba.js"><link rel="prefetch" href="/assets/js/28.ca2c4a72.js"><link rel="prefetch" href="/assets/js/29.63096f46.js"><link rel="prefetch" href="/assets/js/30.68789596.js"><link rel="prefetch" href="/assets/js/31.4260d16f.js"><link rel="prefetch" href="/assets/js/32.1c5a6fd3.js"><link rel="prefetch" href="/assets/js/33.82e68776.js"><link rel="prefetch" href="/assets/js/34.ce4cf983.js"><link rel="prefetch" href="/assets/js/35.ad261254.js"><link rel="prefetch" href="/assets/js/36.eb8c76f3.js"><link rel="prefetch" href="/assets/js/37.81a81246.js"><link rel="prefetch" href="/assets/js/38.8e3fcfb3.js"><link rel="prefetch" href="/assets/js/39.c8f94efb.js"><link rel="prefetch" href="/assets/js/4.fcfb7c5e.js"><link rel="prefetch" href="/assets/js/40.b944e090.js"><link rel="prefetch" href="/assets/js/41.90db94aa.js"><link rel="prefetch" href="/assets/js/42.76bd54a7.js"><link rel="prefetch" href="/assets/js/43.7749b947.js"><link rel="prefetch" href="/assets/js/44.9822e81b.js"><link rel="prefetch" href="/assets/js/45.4aeac282.js"><link rel="prefetch" href="/assets/js/46.5c7b6c79.js"><link rel="prefetch" href="/assets/js/47.e7a84bbd.js"><link rel="prefetch" href="/assets/js/48.1f30a62e.js"><link rel="prefetch" href="/assets/js/5.f74ef72c.js"><link rel="prefetch" href="/assets/js/50.bc826004.js"><link rel="prefetch" href="/assets/js/51.f867b65d.js"><link rel="prefetch" href="/assets/js/52.caebe67e.js"><link rel="prefetch" href="/assets/js/53.f3d26e8c.js"><link rel="prefetch" href="/assets/js/54.7fed47bf.js"><link rel="prefetch" href="/assets/js/55.1fe39da3.js"><link rel="prefetch" href="/assets/js/56.1169e824.js"><link rel="prefetch" href="/assets/js/57.6a64b3bc.js"><link rel="prefetch" href="/assets/js/58.d611c032.js"><link rel="prefetch" href="/assets/js/59.e6fdecd7.js"><link rel="prefetch" href="/assets/js/6.2ec60fdb.js"><link rel="prefetch" href="/assets/js/60.e8f1f495.js"><link rel="prefetch" href="/assets/js/61.e2b99f87.js"><link rel="prefetch" href="/assets/js/62.4485a42b.js"><link rel="prefetch" href="/assets/js/63.24f33f9a.js"><link rel="prefetch" href="/assets/js/64.e0bbb783.js"><link rel="prefetch" href="/assets/js/65.32a3cddf.js"><link rel="prefetch" href="/assets/js/66.0e021e40.js"><link rel="prefetch" href="/assets/js/67.18754e17.js"><link rel="prefetch" href="/assets/js/68.75c22faf.js"><link rel="prefetch" href="/assets/js/69.313c670f.js"><link rel="prefetch" href="/assets/js/7.b853e769.js"><link rel="prefetch" href="/assets/js/70.0e54a723.js"><link rel="prefetch" href="/assets/js/71.629cdac8.js"><link rel="prefetch" href="/assets/js/72.81fa76ba.js"><link rel="prefetch" href="/assets/js/73.4d6d17d4.js"><link rel="prefetch" href="/assets/js/74.8ec634a9.js"><link rel="prefetch" href="/assets/js/75.c167c02b.js"><link rel="prefetch" href="/assets/js/76.0b9fdc17.js"><link rel="prefetch" href="/assets/js/77.a34c835f.js"><link rel="prefetch" href="/assets/js/78.9d8c4f3d.js"><link rel="prefetch" href="/assets/js/79.a59895fa.js"><link rel="prefetch" href="/assets/js/8.190e57c9.js"><link rel="prefetch" href="/assets/js/80.d76f6a88.js"><link rel="prefetch" href="/assets/js/81.4db08702.js"><link rel="prefetch" href="/assets/js/82.195ed95f.js"><link rel="prefetch" href="/assets/js/83.d97eedc0.js"><link rel="prefetch" href="/assets/js/84.98b96997.js"><link rel="prefetch" href="/assets/js/85.8f0ecb67.js"><link rel="prefetch" href="/assets/js/86.adc46613.js"><link rel="prefetch" href="/assets/js/87.7d8caaa0.js"><link rel="prefetch" href="/assets/js/88.d135d5ad.js"><link rel="prefetch" href="/assets/js/89.2d400cbb.js"><link rel="prefetch" href="/assets/js/9.a2876319.js"><link rel="prefetch" href="/assets/js/90.6f1c64f3.js"><link rel="prefetch" href="/assets/js/91.a5537604.js"><link rel="prefetch" href="/assets/js/92.7fa23a4f.js"><link rel="prefetch" href="/assets/js/93.a02bee55.js"><link rel="prefetch" href="/assets/js/94.332cfdbd.js"><link rel="prefetch" href="/assets/js/95.cf440115.js"><link rel="prefetch" href="/assets/js/96.08f325b0.js"><link rel="prefetch" href="/assets/js/97.eb0d3af7.js"><link rel="prefetch" href="/assets/js/98.c61f44cb.js"><link rel="prefetch" href="/assets/js/99.594d8d7d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.23aadbf3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-c00e2ab0><div data-v-c00e2ab0><div id="loader-wrapper" class="loading-wrapper" data-v-71fac282 data-v-c00e2ab0 data-v-c00e2ab0><div class="loader-main" data-v-71fac282><div data-v-71fac282></div><div data-v-71fac282></div><div data-v-71fac282></div><div data-v-71fac282></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4a776749 data-v-c00e2ab0 data-v-c00e2ab0><h3 class="title" style="display:none;" data-v-4a776749 data-v-4a776749>Asahina Blog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-4a776749 data-v-4a776749><input type="password" value="" data-v-4a776749> <span data-v-4a776749>Konck! Knock!</span> <button data-v-4a776749>OK</button></label> <div class="footer" style="display:none;" data-v-4a776749 data-v-4a776749><span data-v-4a776749><i class="iconfont reco-theme" data-v-4a776749></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4a776749>vuePress-theme-reco</a></span> <span data-v-4a776749><i class="iconfont reco-copyright" data-v-4a776749></i> <a data-v-4a776749><span data-v-4a776749>Kincolle</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-c00e2ab0><header class="navbar" data-v-c00e2ab0><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="Asahina Blog" class="logo"> <span class="site-name">Asahina Blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Design Pattern/" class="nav-link"><i class="iconfont undefined"></i>
+  Design Pattern
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Elasticsearch/" class="nav-link"><i class="iconfont undefined"></i>
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Hive/" class="nav-link"><i class="iconfont undefined"></i>
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Lucene/" class="nav-link"><i class="iconfont undefined"></i>
+  Lucene
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mybatis/" class="nav-link"><i class="iconfont undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="https://github.com/kincolle" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  My Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-c00e2ab0></div> <aside class="sidebar" data-v-c00e2ab0><div class="personal-info-wrapper" data-v-1285c3cd><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-1285c3cd> <h3 class="name" data-v-1285c3cd>
+    Kincolle
+  </h3> <div class="num" data-v-1285c3cd><div data-v-1285c3cd><h3 data-v-1285c3cd>122</h3> <h6 data-v-1285c3cd>Article</h6></div> <div data-v-1285c3cd><h3 data-v-1285c3cd>13</h3> <h6 data-v-1285c3cd>Tag</h6></div></div> <hr data-v-1285c3cd></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Design Pattern/" class="nav-link"><i class="iconfont undefined"></i>
+  Design Pattern
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Elasticsearch/" class="nav-link"><i class="iconfont undefined"></i>
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Hive/" class="nav-link"><i class="iconfont undefined"></i>
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Lucene/" class="nav-link"><i class="iconfont undefined"></i>
+  Lucene
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mybatis/" class="nav-link"><i class="iconfont undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="iconfont undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="https://github.com/kincolle" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  My Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java Collection - HashMap And HashSet</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#hashmap" class="sidebar-link">HashMap</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-1-introduction-of-hashmap" class="sidebar-link">1.1 Introduction of HashMap</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-2-data-structure" class="sidebar-link">1.2 Data Structure</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-3-storage" class="sidebar-link">1.3 Storage</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-4-get" class="sidebar-link">1.4 Get</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-5-summary-of-hashmap" class="sidebar-link">1.5 Summary Of HashMap</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-6-resize-of-hashmap" class="sidebar-link">1.6 Resize of HashMap</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-7-parameter-of-hashmap" class="sidebar-link">1.7 Parameter of Hashmap</a></li><li class="sidebar-sub-header"><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-8-fail-fast-strategy" class="sidebar-link">1.8 Fail-Fast Strategy</a></li></ul></li><li><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#_1-introduction-of-hashset" class="sidebar-link">1 Introduction of HashSet</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/Java%20Collection/Java%20Collection-HashMapAndHashSet.html#implementation-of-hashset" class="sidebar-link">Implementation of HashSet</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4a776749 data-v-c00e2ab0><h3 class="title" style="display:none;" data-v-4a776749 data-v-4a776749>Java Collection - HashMap And HashSet</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-4a776749 data-v-4a776749><input type="password" value="" data-v-4a776749> <span data-v-4a776749>Konck! Knock!</span> <button data-v-4a776749>OK</button></label> <div class="footer" style="display:none;" data-v-4a776749 data-v-4a776749><span data-v-4a776749><i class="iconfont reco-theme" data-v-4a776749></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4a776749>vuePress-theme-reco</a></span> <span data-v-4a776749><i class="iconfont reco-copyright" data-v-4a776749></i> <a data-v-4a776749><span data-v-4a776749>Kincolle</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-c00e2ab0><main class="page"><div class="page-title" style="display:none;"><h1>Java Collection - HashMap And HashSet</h1> <hr> <div data-v-0a86f90e><i class="iconfont reco-account" data-v-0a86f90e><span data-v-0a86f90e>Kincolle</span></i> <i class="iconfont reco-date" data-v-0a86f90e><span data-v-0a86f90e>2018-03-06 01:01:50</span></i> <!----> <i class="iconfont reco-tag tags" data-v-0a86f90e><span class="tag-item" data-v-0a86f90e>
+      Java Collection
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="map"><a href="#map" class="header-anchor">#</a> Map</h1> <p>Map uses key-value type. Keys of Map can not be duplicated and each key can lead to a value.</p> <h2 id="hashmap"><a href="#hashmap" class="header-anchor">#</a> HashMap</h2> <h3 id="_1-1-introduction-of-hashmap"><a href="#_1-1-introduction-of-hashmap" class="header-anchor">#</a> 1.1 Introduction of HashMap</h3> <p>HashMap is based on Hash Table and implements Map interface. HashMap allows null key and null value. But, it does not make sure order especially it can not make sure order never be changed.<br>
+Persuming hash function puts elements equably into each bucket. If performance of iterator is important for you, do not set the initial capacity too high (or the load factor too low). You may do not understand why, I will explain it latter.<br>
+By the way, HashMap is not thread safe.</p> <h3 id="_1-2-data-structure"><a href="#_1-2-data-structure" class="header-anchor">#</a> 1.2 Data Structure</h3> <p>In java language, there are two basic data structure: array and pointer and HashMap use both of them. In fact, HashMap is hash linked list sctucture which means is combined with array and linked list.
+<img src="/assets/img/HashMapArrayLinkedList.738a451b.jpg" alt="">
+From the picture we can see that the basic structure is array and every element of the array is a linked list. So, when initiate a new HashMap, it will create a new array. <br>
+Here is the source code:</p> <div class="language- extra-class"><pre><code>public HashMap(int initialCapacity, float loadFactor) {
+    if (initialCapacity &lt; 0)
+        throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; +
+                                           initialCapacity);
+    if (initialCapacity &gt; MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException(&quot;Illegal load factor: &quot; +
+                                           loadFactor);
+
+    // Find a power of 2 &gt;= initialCapacity
+    int capacity = 1;
+    while (capacity &lt; initialCapacity)
+        capacity &lt;&lt;= 1;
+
+    this.loadFactor = loadFactor;
+    threshold = (int)Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + 1);
+    table = new Entry[capacity];
+    useAltHashing = sun.misc.VM.isBooted() &amp;&amp;
+            (capacity &gt;= Holder.ALTERNATIVE_HASHING_THRESHOLD);
+    init();
+}
+</code></pre></div><p>In the source code, there is a code like &quot;table = new Entry[capacity];&quot;. That is the way how java create an array. That means in the construction function, create a Entry array with defined capacity. So, what is the structure of Entry? Let's see the source code:</p> <div class="language- extra-class"><pre><code>static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+    final K key;
+    V value;
+    Entry&lt;K,V&gt; next;
+    final int hash;
+    ……
+}
+</code></pre></div><p>Entry is a static class which contains key-value. Also, it contains a pointer of Entry type named next. So we can get a conclusion that every Entry has a key value and it points to the next element.</p> <h3 id="_1-3-storage"><a href="#_1-3-storage" class="header-anchor">#</a> 1.3 Storage</h3> <p>First of all, let's see the source code:</p> <div class="language- extra-class"><pre><code>/**
+ * Associates the specified value with the specified key in this map.
+ * If the map previously contained a mapping for the key, the old
+ * value is replaced.
+ *
+ * @param key key with which the specified value is to be associated
+ * @param value value to be associated with the specified key
+ * @return the previous value associated with &lt;tt&gt;key&lt;/tt&gt;, or
+ *         &lt;tt&gt;null&lt;/tt&gt; if there was no mapping for &lt;tt&gt;key&lt;/tt&gt;.
+ *         (A &lt;tt&gt;null&lt;/tt&gt; return can also indicate that the map
+ *         previously associated &lt;tt&gt;null&lt;/tt&gt; with &lt;tt&gt;key&lt;/tt&gt;.)
+ */
+public V put(K key, V value) {
+    //allow store null ket and null value, when the key is null, putForNullKey function will be invoked and input data into table[0]
+    if (key == null)
+        return putForNullKey(value);
+    // get hash value for key
+    int hash = hash(key);
+    //get index i by using hash value
+    int i = indexFor(hash, table.length);
+    //if at i position is not null, the using next to iterate the next element
+    for (Entry&lt;K,V&gt; e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
+
+    modCount++;
+    addEntry(hash, key, value, i);
+    return null;
+}
+</code></pre></div><p>From the comment we can know that: when we put an element, if the key exists, the new value will replace old one and return old one, if not it will return null.<br>
+Also, we can know from the source code that: when we put an element, it will compute hash value of key and get the position by using hash value. If this in position exists a value put the element in linkedlist type, new element will be put at head and the oldest element will be put at the tail. If this in position exists no value, the put the value at this position.<br>
+addEntry(hash, key, value, i) will put key-value at i position of array table by using hash value. The source is :</p> <div class="language- extra-class"><pre><code>/**
+ * Adds a new entry with the specified key, value and hash code to
+ * the specified bucket.  It is the responsibility of this
+ * method to resize the table if appropriate.
+ *
+ * Subclass overrides this to alter the behavior of put method.
+ */
+void addEntry(int hash, K key, V value, int bucketIndex) {
+    if ((size &gt;= threshold) &amp;&amp; (null != table[bucketIndex])) {
+        resize(2 * table.length);
+        hash = (null != key) ? hash(key) : 0;
+        bucketIndex = indexFor(hash, table.length);
+    }
+
+    createEntry(hash, key, value, bucketIndex);
+}
+void createEntry(int hash, K key, V value, int bucketIndex) {
+    // get the Entry at the bucketIndex position
+    Entry&lt;K,V&gt; e = table[bucketIndex];
+    // Put the new created Entry into bucketIndex position and ley the new Entry point to the old Entry
+    table[bucketIndex] = new Entry&lt;&gt;(hash, key, value, e);
+    size++;
+} 
+</code></pre></div><p>When system want to store a key-value, it does not consider value of Entry, and just get the position by using key. We also can use the value to be a key can determine the position to store, and then store the value.<br>
+hash(int h) can compute hash value according to the key. This function can avoid hash confliction.
+Here is the source code:</p> <div class="language- extra-class"><pre><code>final int hash(Object k) {
+    int h = 0;
+    if (useAltHashing) {
+        if (k instanceof String) {
+            return sun.misc.Hashing.stringHash32((String) k);
+        }
+        h = hashSeed;
+    }
+    // get hashcode of k
+    h ^= k.hashCode();
+    //do computing
+    h ^= (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);
+    return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);
+}
+</code></pre></div><p>We can get position bt using hash code instead of iteration. That's is high efficiency. About hash code here is the source code:</p> <div class="language- extra-class"><pre><code>/**
+ * Returns index for hash code h.
+ */
+static int indexFor(int h, int length) {  
+    return h &amp; (length-1);
+}
+
+// Find a power of 2 &gt;= initialCapacity
+int capacity = 1;
+while (capacity &lt; initialCapacity)  
+    capacity &lt;&lt;= 1;
+</code></pre></div><h3 id="_1-4-get"><a href="#_1-4-get" class="header-anchor">#</a> 1.4 Get</h3> <p>Here is source code about getting element:</p> <div class="language- extra-class"><pre><code>/**
+ * Returns the value to which the specified key is mapped,
+ * or {@code null} if this map contains no mapping for the key.
+ *
+ * &lt;p&gt;More formally, if this map contains a mapping from a key
+ * {@code k} to a value {@code v} such that {@code (key==null ? k==null :
+ * key.equals(k))}, then this method returns {@code v}; otherwise
+ * it returns {@code null}.  (There can be at most one such mapping.)
+ *
+ * &lt;p&gt;A return value of {@code null} does not &lt;i&gt;necessarily&lt;/i&gt;
+ * indicate that the map contains no mapping for the key; it's also
+ * possible that the map explicitly maps the key to {@code null}.
+ * The {@link #containsKey containsKey} operation may be used to
+ * distinguish these two cases.
+ *
+ * @see #put(Object, Object)
+ */
+public V get(Object key) {
+    if (key == null)
+        return getForNullKey();
+    Entry&lt;K,V&gt; entry = getEntry(key);
+
+    return null == entry ? null : entry.getValue();
+}
+final Entry&lt;K,V&gt; getEntry(Object key) {
+    int hash = (key == null) ? 0 : hash(key);
+    for (Entry&lt;K,V&gt; e = table[indexFor(hash, table.length)];
+         e != null;
+         e = e.next) {
+        Object k;
+        if (e.hash == hash &amp;&amp;
+            ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+            return e;
+    }
+    return null;
+}
+</code></pre></div><p>As we already have knowledge of storage, it's easy to understand the getting. To get a element, firstly computing hashcode of a key and get a value of array then use key to get element we want.</p> <h3 id="_1-5-summary-of-hashmap"><a href="#_1-5-summary-of-hashmap" class="header-anchor">#</a> 1.5 Summary Of HashMap</h3> <p>We can treat key-value as a Entry instance. The Entry[] willl store all key-value. When we want to store one, it will dicide its position at array by using hash code, and use equals() to determine the position at the linked list. When we want to get a Entry, we also  using hash code to find its position at array and use equals() to get the Entry we want.</p> <h3 id="_1-6-resize-of-hashmap"><a href="#_1-6-resize-of-hashmap" class="header-anchor">#</a> 1.6 Resize of HashMap</h3> <p>When number of elements of one HashMap gets bigger, the ratio of getting confliction is getting higher because the length of array is setted. To increase the performance of the getting, we need to increase the size of array. After size of array has been increased, all the element of map will be relocated and that will do a lot of computing.<br>
+So, when will the system do resize? When number of element is over size(array)<em>loadFactor, it will do resize. The default loadFactor is 0.75 and the default size of array is 16. Then, when number of element is over 16</em>0.75=12, it will increase the size of array to 32. So, forecasting the element number will be helpful.</p> <h3 id="_1-7-parameter-of-hashmap"><a href="#_1-7-parameter-of-hashmap" class="header-anchor">#</a> 1.7 Parameter of Hashmap</h3> <p>There are three kinds of construction:</p> <ul><li>HashMap()：build a HashMap with Capacity of 16 and loadFactor of 0.75</li> <li>HashMap(int initialCapacity)：build a HashMap with Capacity of initialCapacity and loadFactor of 0.75</li> <li>HashMap(int initialCapacity, float loadFactor)： build a HashMap with Capacity of initialCapacity and loadFactor of loadFactor</li></ul> <h3 id="_1-8-fail-fast-strategy"><a href="#_1-8-fail-fast-strategy" class="header-anchor">#</a> 1.8 Fail-Fast Strategy</h3> <p>We know that HashMap is not thread safe. If some other threads change the map, ConcurrentModificationException will be thrown out. That is Fail-Fast strategy. <br>
+It is implemented by using modCount. The modCount means the times of changing. Here is the source code:</p> <div class="language- extra-class"><pre><code>HashIterator() {
+    expectedModCount = modCount;
+    if (size &gt; 0) { // advance to first entry
+    Entry[] t = table;
+    while (index &lt; t.length &amp;&amp; (next = t[index++]) == null)  
+        ;
+    }
+}
+</code></pre></div><p>When iterate, will judge if modCount equals expectedModCount.</p> <h1 id="hashset"><a href="#hashset" class="header-anchor">#</a> HashSet</h1> <h2 id="_1-introduction-of-hashset"><a href="#_1-introduction-of-hashset" class="header-anchor">#</a> 1 Introduction of HashSet</h2> <p>HashSet is implemented by using HashMap. So, if you know HashMao very well, you can understand HashSet quickly.<br>
+Here let's see the construction of HashSet:</p> <div class="language- extra-class"><pre><code>private transient HashMap&lt;E,Object&gt; map;
+
+// Dummy value to associate with an Object in the backing Map
+private static final Object PRESENT = new Object();
+
+/**
+ * Constructs a new, empty set; the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance has
+ * default initial capacity (16) and load factor (0.75).
+ */
+public HashSet() {
+    map = new HashMap&lt;&gt;();
+}
+</code></pre></div><p>We can see that it is constructed by using HashMap.</p> <h2 id="implementation-of-hashset"><a href="#implementation-of-hashset" class="header-anchor">#</a> Implementation of HashSet</h2> <p>For HashSet, since it uses HashMap, the element is stored in HashMap．So most function of HashSet is the same to HashMap.</p> <h5 id="construction"><a href="#construction" class="header-anchor">#</a> construction</h5> <div class="language- extra-class"><pre><code> /**
+ * defaulf constructor and will construct a empty HashSet
+ *
+ * In fact it will construct a empty HashMap with Capacity of 16 and loadFactor of 0.75
+ */
+public HashSet() {
+    map = new HashMap&lt;E,Object&gt;();
+}
+
+/**
+ * Create a new HashSet with all elements of the collection
+ *
+ * it will construct a empty HashMap with Capacity of 16 and loadFactor of 0.75
+ * @param element of c will be stored in this HashSet
+ */
+public HashSet(Collection&lt;? extends E&gt; c) {
+    map = new HashMap&lt;E,Object&gt;(Math.max((int) (c.size()/.75f) + 1, 16));
+    addAll(c);
+}
+
+/**
+ * create a new empty HashSet with Capacity of initialCapacity and loadFactor of loadFactor
+ *
+ * @param initialCapacity 
+ * @param loadFactor 
+ */
+public HashSet(int initialCapacity, float loadFactor) {
+    map = new HashMap&lt;E,Object&gt;(initialCapacity, loadFactor);
+}
+
+/**
+ * build a new empty HashSet with Capacity of initialCapacity and loadFactor of 0.75
+ *
+ * @param initialCapacity 
+ */
+public HashSet(int initialCapacity) {
+    map = new HashMap&lt;E,Object&gt;(initialCapacity);
+}
+</code></pre></div><h5 id="add"><a href="#add" class="header-anchor">#</a> add</h5> <p>Here is the source code:</p> <div class="language- extra-class"><pre><code>/**
+
+ * @param e the e will be put into the set
+ * @return if there is no e in this set, then returen ture
+ */
+public boolean add(E e) {
+    return map.put(e, PRESENT)==null;
+}
+</code></pre></div><p>If the set is not containing e, then it will be put into the set. <br>
+In HashMap, will put key-value, the key will never be duplicated. That's why the elements of set will never be duplicated.</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">5/6/2020, 6:06:01 PM</span></div></footer> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-1e128e82 data-v-1e128e82><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-1e128e82><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-1e128e82></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-1e128e82></path></svg></div><div class="kanbanniang" data-v-ee8d62e6><div class="banniang-container" style="display:;" data-v-ee8d62e6><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-ee8d62e6>
+      欢迎来到 Asahina Blog
+    </div> <div class="operation" style="right:90px;bottom:40px;display:none;" data-v-ee8d62e6><i class="kbnfont kbn-ban-home ban-home" data-v-ee8d62e6></i> <i class="kbnfont kbn-ban-message message" data-v-ee8d62e6></i> <i class="kbnfont kbn-ban-close close" data-v-ee8d62e6></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-ee8d62e6><i class="kbnfont kbn-ban-info info" data-v-ee8d62e6></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-ee8d62e6></i></div> <canvas id="banniang" width="200" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-ee8d62e6></canvas></div> <div class="showBanNiang" style="display:none;" data-v-ee8d62e6>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-0a2aff30><audio id="bgm" src="/bgm/Saba,Daoud - Where Ideas Sing.mp3" data-v-0a2aff30></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-0a2aff30 data-v-0d264cb4 data-v-0a2aff30><img src="/bgm/1.jpg" data-v-0a2aff30></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-0a2aff30 data-v-0d264cb4 data-v-0a2aff30><div class="reco-bgm-cover" style="background-image:url(/bgm/1.jpg);" data-v-0a2aff30><div class="mini-operation" style="display:none;" data-v-0a2aff30><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-0a2aff30></i></div> <div class="falut-message" style="display:none;" data-v-0a2aff30>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-0a2aff30 data-v-0d264cb4 data-v-0a2aff30><div class="info-box" data-v-0a2aff30><i class="reco-bgm reco-bgm-music music" data-v-0a2aff30></i>Where Ideas Sing</div> <div class="info-box" data-v-0a2aff30><i class="reco-bgm reco-bgm-artist" data-v-0a2aff30></i>Saba,Daoud</div> <div class="reco-bgm-progress" data-v-0a2aff30><div class="progress-bar" data-v-0a2aff30><div class="bar" data-v-0a2aff30></div></div></div> <div class="reco-bgm-operation" data-v-0a2aff30><i class="reco-bgm reco-bgm-last last" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-play play" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-next next" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-0a2aff30></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-0a2aff30></i> <div class="volume-bar" data-v-0a2aff30><div class="bar" data-v-0a2aff30></div></div></div></div> <div class="reco-bgm-left-box" data-v-0a2aff30 data-v-0d264cb4 data-v-0a2aff30><i class="reco-bgm reco-bgm-left" data-v-0a2aff30></i></div></div></div><div></div><div id="goTop" class="hide-cat" data-v-96c33144></div></div></div>
+    <script src="/assets/js/app.7ef487d0.js" defer></script><script src="/assets/js/3.9dac7fba.js" defer></script><script src="/assets/js/1.7a264106.js" defer></script><script src="/assets/js/49.48309789.js" defer></script>
+  </body>
+</html>
