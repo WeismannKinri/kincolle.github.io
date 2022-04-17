@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java Concurrency - Concurrent HashMap In JDK 1.7 | Asahina Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/ok_favicon.ico">
+    <meta name="description" content="For Tech Blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.167a03c8.css" as="style"><link rel="preload" href="/assets/js/app.7bf124e2.js" as="script"><link rel="preload" href="/assets/js/3.11415aa8.js" as="script"><link rel="preload" href="/assets/js/1.f9d84a83.js" as="script"><link rel="preload" href="/assets/js/51.919d0154.js" as="script"><link rel="prefetch" href="/assets/js/10.160e6e9c.js"><link rel="prefetch" href="/assets/js/100.3cdef464.js"><link rel="prefetch" href="/assets/js/101.5178591b.js"><link rel="prefetch" href="/assets/js/102.336b2e64.js"><link rel="prefetch" href="/assets/js/103.b749e8f0.js"><link rel="prefetch" href="/assets/js/104.4e0be82d.js"><link rel="prefetch" href="/assets/js/105.2283e32d.js"><link rel="prefetch" href="/assets/js/106.f6d10c35.js"><link rel="prefetch" href="/assets/js/107.168e6177.js"><link rel="prefetch" href="/assets/js/108.8668c986.js"><link rel="prefetch" href="/assets/js/109.6971a03e.js"><link rel="prefetch" href="/assets/js/11.286216e9.js"><link rel="prefetch" href="/assets/js/110.eae35184.js"><link rel="prefetch" href="/assets/js/111.05a11607.js"><link rel="prefetch" href="/assets/js/112.3e67db1b.js"><link rel="prefetch" href="/assets/js/113.89cb826b.js"><link rel="prefetch" href="/assets/js/114.f3d7a768.js"><link rel="prefetch" href="/assets/js/115.63beb6b3.js"><link rel="prefetch" href="/assets/js/116.d3f81a36.js"><link rel="prefetch" href="/assets/js/117.b85ad082.js"><link rel="prefetch" href="/assets/js/118.f1a51aea.js"><link rel="prefetch" href="/assets/js/119.19e0a7b9.js"><link rel="prefetch" href="/assets/js/12.e7c5cbfb.js"><link rel="prefetch" href="/assets/js/120.86fd078a.js"><link rel="prefetch" href="/assets/js/121.007d2594.js"><link rel="prefetch" href="/assets/js/122.f22031f8.js"><link rel="prefetch" href="/assets/js/123.84ca6b69.js"><link rel="prefetch" href="/assets/js/124.3fbddabe.js"><link rel="prefetch" href="/assets/js/125.db4ff77b.js"><link rel="prefetch" href="/assets/js/126.10227c11.js"><link rel="prefetch" href="/assets/js/127.0d7b5084.js"><link rel="prefetch" href="/assets/js/128.1acf472b.js"><link rel="prefetch" href="/assets/js/129.825fe808.js"><link rel="prefetch" href="/assets/js/13.43cc31b1.js"><link rel="prefetch" href="/assets/js/130.0bfc98b2.js"><link rel="prefetch" href="/assets/js/131.aede149c.js"><link rel="prefetch" href="/assets/js/132.85593e8b.js"><link rel="prefetch" href="/assets/js/133.0f271fc3.js"><link rel="prefetch" href="/assets/js/14.0dd24f84.js"><link rel="prefetch" href="/assets/js/15.1b41732d.js"><link rel="prefetch" href="/assets/js/16.183ffc75.js"><link rel="prefetch" href="/assets/js/17.ad9af643.js"><link rel="prefetch" href="/assets/js/18.c13df2c1.js"><link rel="prefetch" href="/assets/js/19.2203e54d.js"><link rel="prefetch" href="/assets/js/20.34db0668.js"><link rel="prefetch" href="/assets/js/21.44a33107.js"><link rel="prefetch" href="/assets/js/22.52d283c5.js"><link rel="prefetch" href="/assets/js/23.4e0524b7.js"><link rel="prefetch" href="/assets/js/24.decf705e.js"><link rel="prefetch" href="/assets/js/25.6873ed81.js"><link rel="prefetch" href="/assets/js/26.4d86aa15.js"><link rel="prefetch" href="/assets/js/27.6b45c11e.js"><link rel="prefetch" href="/assets/js/28.f4d58a14.js"><link rel="prefetch" href="/assets/js/29.871a72fd.js"><link rel="prefetch" href="/assets/js/30.49b4c5ea.js"><link rel="prefetch" href="/assets/js/31.cfc2945d.js"><link rel="prefetch" href="/assets/js/32.343850cd.js"><link rel="prefetch" href="/assets/js/33.0517526c.js"><link rel="prefetch" href="/assets/js/34.85ea8eb4.js"><link rel="prefetch" href="/assets/js/35.43969a65.js"><link rel="prefetch" href="/assets/js/36.7836aa64.js"><link rel="prefetch" href="/assets/js/37.e5812400.js"><link rel="prefetch" href="/assets/js/38.d8d214a6.js"><link rel="prefetch" href="/assets/js/39.f1cb3672.js"><link rel="prefetch" href="/assets/js/4.64515438.js"><link rel="prefetch" href="/assets/js/40.7adf5ab8.js"><link rel="prefetch" href="/assets/js/41.57755578.js"><link rel="prefetch" href="/assets/js/42.38ebc979.js"><link rel="prefetch" href="/assets/js/43.ca6a6476.js"><link rel="prefetch" href="/assets/js/44.41942e77.js"><link rel="prefetch" href="/assets/js/45.41cc929c.js"><link rel="prefetch" href="/assets/js/46.4cbb486f.js"><link rel="prefetch" href="/assets/js/47.ee2cc207.js"><link rel="prefetch" href="/assets/js/48.4397b1ca.js"><link rel="prefetch" href="/assets/js/49.d9aa00a5.js"><link rel="prefetch" href="/assets/js/5.a9ee7173.js"><link rel="prefetch" href="/assets/js/50.b45ed76a.js"><link rel="prefetch" href="/assets/js/52.eb85632f.js"><link rel="prefetch" href="/assets/js/53.3a47197f.js"><link rel="prefetch" href="/assets/js/54.c8d2aed8.js"><link rel="prefetch" href="/assets/js/55.b8b65327.js"><link rel="prefetch" href="/assets/js/56.2d8e9a6e.js"><link rel="prefetch" href="/assets/js/57.38ba175c.js"><link rel="prefetch" href="/assets/js/58.2f7ff696.js"><link rel="prefetch" href="/assets/js/59.56eb125d.js"><link rel="prefetch" href="/assets/js/6.3a661d6d.js"><link rel="prefetch" href="/assets/js/60.197980b0.js"><link rel="prefetch" href="/assets/js/61.4b544728.js"><link rel="prefetch" href="/assets/js/62.b2382e0f.js"><link rel="prefetch" href="/assets/js/63.733bd9cd.js"><link rel="prefetch" href="/assets/js/64.d59be5ac.js"><link rel="prefetch" href="/assets/js/65.9db92d49.js"><link rel="prefetch" href="/assets/js/66.b89a7790.js"><link rel="prefetch" href="/assets/js/67.1353b5b4.js"><link rel="prefetch" href="/assets/js/68.6cf3768b.js"><link rel="prefetch" href="/assets/js/69.5590fae6.js"><link rel="prefetch" href="/assets/js/7.9cb840c5.js"><link rel="prefetch" href="/assets/js/70.2ded2061.js"><link rel="prefetch" href="/assets/js/71.5a572a0a.js"><link rel="prefetch" href="/assets/js/72.4894d369.js"><link rel="prefetch" href="/assets/js/73.c3a7815f.js"><link rel="prefetch" href="/assets/js/74.d1adf6f2.js"><link rel="prefetch" href="/assets/js/75.7e41458b.js"><link rel="prefetch" href="/assets/js/76.686c4022.js"><link rel="prefetch" href="/assets/js/77.835ea7c3.js"><link rel="prefetch" href="/assets/js/78.9ffc54ca.js"><link rel="prefetch" href="/assets/js/79.b6aa2776.js"><link rel="prefetch" href="/assets/js/8.a1c97708.js"><link rel="prefetch" href="/assets/js/80.97d7ee23.js"><link rel="prefetch" href="/assets/js/81.a0a3a3ee.js"><link rel="prefetch" href="/assets/js/82.2290dd53.js"><link rel="prefetch" href="/assets/js/83.0927cd8c.js"><link rel="prefetch" href="/assets/js/84.4d42c930.js"><link rel="prefetch" href="/assets/js/85.f344b6f7.js"><link rel="prefetch" href="/assets/js/86.f7bb8b2b.js"><link rel="prefetch" href="/assets/js/87.7df4d88d.js"><link rel="prefetch" href="/assets/js/88.2b2debf8.js"><link rel="prefetch" href="/assets/js/89.042c73d8.js"><link rel="prefetch" href="/assets/js/9.402194bf.js"><link rel="prefetch" href="/assets/js/90.4d7b430c.js"><link rel="prefetch" href="/assets/js/91.f65d4f6e.js"><link rel="prefetch" href="/assets/js/92.89ac564f.js"><link rel="prefetch" href="/assets/js/93.160f3887.js"><link rel="prefetch" href="/assets/js/94.29ed14c3.js"><link rel="prefetch" href="/assets/js/95.4afaed8c.js"><link rel="prefetch" href="/assets/js/96.e8ef314f.js"><link rel="prefetch" href="/assets/js/97.e8db3b68.js"><link rel="prefetch" href="/assets/js/98.540f1fa5.js"><link rel="prefetch" href="/assets/js/99.3a27d21e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.167a03c8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Asahina Blog</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>For Tech Blog</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>Kincolle</span>
+            
+          <span data-v-25ba6db2>2020 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="Asahina Blog" class="logo"> <span class="site-name">Asahina Blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Design Pattern/" class="nav-link"><i class="undefined"></i>
+  Design Pattern
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Elasticsearch/" class="nav-link"><i class="undefined"></i>
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Hive/" class="nav-link"><i class="undefined"></i>
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Lucene/" class="nav-link"><i class="undefined"></i>
+  Lucene
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="https://github.com/kincolle" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  My Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-39576ba9> <h3 class="name" data-v-39576ba9>
+    Kincolle
+  </h3> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>123</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>13</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Design Pattern/" class="nav-link"><i class="undefined"></i>
+  Design Pattern
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Elasticsearch/" class="nav-link"><i class="undefined"></i>
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Hive/" class="nav-link"><i class="undefined"></i>
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Lucene/" class="nav-link"><i class="undefined"></i>
+  Lucene
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="https://github.com/kincolle" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  My Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Java Concurrency - Concurrent HashMap In JDK 1.7</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>Kincolle</span>
+            
+          <span data-v-25ba6db2>2020 - </span>
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">Java Concurrency - Concurrent HashMap In JDK 1.7</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>Kincolle</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>3/27/2018</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>Java Concurrency</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="_1-introduction-of-concurrent-hashmap-in-jdk-1-7"><a href="#_1-introduction-of-concurrent-hashmap-in-jdk-1-7" class="header-anchor">#</a> 1. Introduction Of Concurrent HashMap In JDK 1.7</h2> <p>ConcurrentHashMap is almost like HashMap and it supports concurrent operations, so it is more complex. A whole ConcurrentHashMap is comprised of Segments, that means ConcurrentHashMap is a Segment array and it extends ReentrantLock to do lock. So if every Segment is thread safe, then the whole ConcurrentHashMap is thread safe.</p> <p><img src="/assets/img/1.9c455714.png" alt=""></p> <p><strong>concurrencyLevel</strong>：The default value is 16. Which means in ConcurrentHashMap there are 16 Segments. theoretically, it can support at most 16 threads works at the same time if different thread works on different Segment. This value can be set when initial, but can not be expanded after initial.<br>
+In Segment, it is like HashMap but it will support thread safe.</p> <h2 id="_2-initial"><a href="#_2-initial" class="header-anchor">#</a> 2. Initial</h2> <p>initialCapacity: initial volume, it is initial value of a whole ConcurrentHashMap and will be divided qually into each Segment.<br><br>
+loadFactor: I hava said that Segment can not be expanded after initial, so it is used in every inner Segment.</p> <div class="language- extra-class"><pre><code>public ConcurrentHashMap(int initialCapacity,
+                         float loadFactor, int concurrencyLevel) {
+    if (!(loadFactor &gt; 0) || initialCapacity &lt; 0 || concurrencyLevel &lt;= 0)
+        throw new IllegalArgumentException();
+    if (concurrencyLevel &gt; MAX_SEGMENTS)
+        concurrencyLevel = MAX_SEGMENTS;
+    // Find power-of-two sizes best matching arguments
+    int sshift = 0;
+    int ssize = 1;
+    // the concurrencyLevel is ssize，and it needs to be kept as the nth power of 2
+    while (ssize &lt; concurrencyLevel) {
+        ++sshift;
+        ssize &lt;&lt;= 1;
+    }
+    // In default，concurrencyLevel is 16，sshift is 4
+    // After computing, segmentShift is 28，segmentMask is 15
+    this.segmentShift = 32 - sshift;
+    this.segmentMask = ssize - 1;
+
+    if (initialCapacity &gt; MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+
+    // initialCapacity will set the size of the whole map when initial
+    // Computing size of every segment can get according to initialCapacity 
+    // if initialCapacity is 64，then every Segment will have size of 4
+    int c = initialCapacity / ssize;
+    if (c * ssize &lt; initialCapacity)
+        ++c;
+    // default MIN_SEGMENT_TABLE_CAPACITY is, then it will not rehash when the first element comes and will do rehash when the second one comes 
+    int cap = MIN_SEGMENT_TABLE_CAPACITY; 
+    while (cap &lt; c)
+        cap &lt;&lt;= 1;
+
+    // create Segment array
+    // and create the first element segment[0]
+    Segment&lt;K,V&gt; s0 =
+        new Segment&lt;K,V&gt;(loadFactor, (int)(cap * loadFactor),
+                         (HashEntry&lt;K,V&gt;[])new HashEntry[cap]);
+    Segment&lt;K,V&gt;[] ss = (Segment&lt;K,V&gt;[])new Segment[ssize];
+    // put the segment[0] into the array
+    UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]
+    this.segments = ss;
+}
+</code></pre></div><p>When the finishing completed, we get a Segment array. We use &quot;new ConcurrentHashMap()&quot; to do it, after the finishing:</p> <ul><li>length of Segment array is 16 and can not be changed.</li> <li>Default size of Segment[i] is 2 and loadFactor is 0.75, so we have 2*0.75=1.5. That is why it will not rehash when the first element comes and will do rehash when the second one comes</li> <li>Here we inited segment[0], and others are null</li> <li>segmentShift is 32 - 4 = 28, segmentMask is 16 - 1 = 15</li></ul> <h2 id="_3-put"><a href="#_3-put" class="header-anchor">#</a> 3. Put</h2> <p>Here let's see how put works:</p> <div class="language- extra-class"><pre><code>public V put(K key, V value) {
+    Segment&lt;K,V&gt; s;
+    if (value == null)
+        throw new NullPointerException();
+    // 1. computing hash value of key
+    int hash = hash(key);
+    // 2. find position j in Segment array according to hash value
+    //    hash is 32 bit, move right segmentShift(28) bit, then left 4 bit,
+    
+    int j = (hash &gt;&gt;&gt; segmentShift) &amp; segmentMask;
+    // all are null except segment[0] after initial
+    // ensureSegment(j) 对 segment[j] 进行初始化
+    if ((s = (Segment&lt;K,V&gt;)UNSAFE.getObject          // nonvolatile; recheck
+         (segments, (j &lt;&lt; SSHIFT) + SBASE)) == null) //  in ensureSegment
+        s = ensureSegment(j);
+    // 3. put new value into s
+    return s.put(key, hash, value, false);
+}
+</code></pre></div><p>The first layout is simple. Just find the Segment according to hash value then do put operation in the Segment.<br>
+In the Segment, it is comprised of array and linked likst.</p> <div class="language- extra-class"><pre><code>final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+    // Before write into this segment, it needs lock firts
+    HashEntry&lt;K,V&gt; node = tryLock() ? null :
+        scanAndLockForPut(key, hash, value);
+    V oldValue;
+    try {
+        // this is a array in the segment
+        HashEntry&lt;K,V&gt;[] tab = table;
+        // use hash code to find the index in the array
+        int index = (tab.length - 1) &amp; hash;
+        // first is the head of linked list
+        HashEntry&lt;K,V&gt; first = entryAt(tab, index);
+
+        for (HashEntry&lt;K,V&gt; e = first;;) {
+            if (e != null) {
+                K k;
+                if ((k = e.key) == key ||
+                    (e.hash == hash &amp;&amp; key.equals(k))) {
+                    oldValue = e.value;
+                    if (!onlyIfAbsent) {
+                        // cover ole value
+                        e.value = value;
+                        ++modCount;
+                    }
+                    break;
+                }
+                // go on by the linked list
+                e = e.next;
+            }
+            else {
+                // if node is not null, then set it as the head of linked list; if it is null, do initial and set it as the head of linked list
+                if (node != null)
+                    node.setNext(first);
+                else
+                    node = new HashEntry&lt;K,V&gt;(hash, key, value, first);
+
+                int c = count + 1;
+                // if it is over the threshold, then do rehash
+                if (c &gt; threshold &amp;&amp; tab.length &lt; MAXIMUM_CAPACITY)
+                    rehash(node); 
+                else
+                    // if it is not over the threshold, then put node at the position of index in the tab array
+                    setEntryAt(tab, index, node);
+                ++modCount;
+                count = c;
+                oldValue = null;
+                break;
+            }
+        }
+    } finally {
+        // do unlock
+        unlock();
+    }
+    return oldValue;
+}
+</code></pre></div><p>Because of lock, it is thread safe.</p> <h2 id="_4-ensuresegment"><a href="#_4-ensuresegment" class="header-anchor">#</a> 4. ensureSegment</h2> <p>When ConcurrentHashMap do initial, it will create a segment[0]. For other segments, it will do initial when new elements come.</p><hr>
+Here we need to think about concurrency, that may more than one threads to initial the same segment[k]. Only one can success.<p></p> <div class="language- extra-class"><pre><code>private Segment&lt;K,V&gt; ensureSegment(int k) {
+    final Segment&lt;K,V&gt;[] ss = this.segments;
+    long u = (k &lt;&lt; SSHIFT) + SBASE; // raw offset
+    Segment&lt;K,V&gt; seg;
+    if ((seg = (Segment&lt;K,V&gt;)UNSAFE.getObjectVolatile(ss, u)) == null) {
+        
+        Segment&lt;K,V&gt; proto = ss[0];
+        int cap = proto.table.length;
+        float lf = proto.loadFactor;
+        int threshold = (int)(cap * lf);
+
+        // initial the array in the segment[k]
+        HashEntry&lt;K,V&gt;[] tab = (HashEntry&lt;K,V&gt;[])new HashEntry[cap];
+        if ((seg = (Segment&lt;K,V&gt;)UNSAFE.getObjectVolatile(ss, u))
+            == null) { // check again that whether it is inited by other threads
+
+            Segment&lt;K,V&gt; s = new Segment&lt;K,V&gt;(lf, threshold, tab);
+            // Use while loopm and CAS, to make sure the current thread will success, then quit
+            while ((seg = (Segment&lt;K,V&gt;)UNSAFE.getObjectVolatile(ss, u))
+                   == null) {
+                if (UNSAFE.compareAndSwapObject(ss, u, null, seg = s))
+                    break;
+            }
+        }
+    }
+    return seg;
+}
+</code></pre></div><p>We can see that ensureSegment(int k) use CAS to control concurrency problems.</p> <h2 id="_5-scanandlockforput"><a href="#_5-scanandlockforput" class="header-anchor">#</a> 5. scanAndLockForPut</h2> <p>When we want to put element into one segment, it will invoke &quot;node = tryLock() ? null : scanAndLockForPut(key, hash, value)&quot;, that is to say it will do tryLock() to get lock of the current segment. If fail then go into scanAndLockForPut to get lock:</p> <div class="language- extra-class"><pre><code>private HashEntry&lt;K,V&gt; scanAndLockForPut(K key, int hash, V value) {
+    HashEntry&lt;K,V&gt; first = entryForHash(this, hash);
+    HashEntry&lt;K,V&gt; e = first;
+    HashEntry&lt;K,V&gt; node = null;
+    int retries = -1; // negative while locating node
+
+    // Get lock in the loop
+    while (!tryLock()) {
+        HashEntry&lt;K,V&gt; f; // to recheck first below
+        if (retries &lt; 0) {
+            if (e == null) {
+                if (node == null) // speculatively create node
+                    
+                    node = new HashEntry&lt;K,V&gt;(hash, key, value, null);
+                retries = 0;
+            }
+            else if (key.equals(e.key))
+                retries = 0;
+            else
+                // go on with the linked list
+                e = e.next;
+        }
+
+        else if (++retries &gt; MAX_SCAN_RETRIES) {
+            lock();
+            break;
+        }
+        else if ((retries &amp; 1) == 0 &amp;&amp;
+                
+                 (f = entryForHash(this, hash)) != first) {
+            e = first = f; // re-traverse if entry changed
+            retries = -1;
+        }
+    }
+    return node;
+}
+</code></pre></div><p>There a 2 exits: one is tryLock() suceeds and quit the loop; another is over MAX_SCAN_RETRIES then do lock() and it will block the thread until get lock.</p> <h2 id="_6-get"><a href="#_6-get" class="header-anchor">#</a> 6. Get</h2> <p>Get is easy:</p> <ol><li><p>compute hash code and find the index in Segment array</p></li> <li><p>fing position in the array in the segment</p></li> <li><p>find entry in the linked list</p> <p>public V get(Object key) {
+Segment&lt;K,V&gt; s; // manually integrate access methods to reduce overhead
+HashEntry&lt;K,V&gt;[] tab;
+// 1. hash value
+int h = hash(key);
+long u = (((h &gt;&gt;&gt; segmentShift) &amp; segmentMask) &lt;&lt; SSHIFT) + SBASE;
+// 2. get segment according to hash value
+if ((s = (Segment&lt;K,V&gt;)UNSAFE.getObjectVolatile(segments, u)) != null &amp;&amp;
+(tab = s.table) != null) {</p> <div class="language- extra-class"><pre><code>     for (HashEntry&lt;K,V&gt; e = (HashEntry&lt;K,V&gt;) UNSAFE.getObjectVolatile
+              (tab, ((long)(((tab.length - 1) &amp; h)) &lt;&lt; TSHIFT) + TBASE);
+          e != null; e = e.next) {
+         K k;
+         if ((k = e.key) == key || (e.hash == h &amp;&amp; key.equals(k)))
+             return e.value;
+     }
+ }
+ return null;
+</code></pre></div><p>}</p></li></ol></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">4/10/2022, 10:47:25 PM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_1-introduction-of-concurrent-hashmap-in-jdk-1-7" class="sidebar-link reco-side-_1-introduction-of-concurrent-hashmap-in-jdk-1-7" data-v-cb1513f6>1. Introduction Of Concurrent HashMap In JDK 1.7</a></li><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_2-initial" class="sidebar-link reco-side-_2-initial" data-v-cb1513f6>2. Initial</a></li><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_3-put" class="sidebar-link reco-side-_3-put" data-v-cb1513f6>3. Put</a></li><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_4-ensuresegment" class="sidebar-link reco-side-_4-ensuresegment" data-v-cb1513f6>4. ensureSegment</a></li><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_5-scanandlockforput" class="sidebar-link reco-side-_5-scanandlockforput" data-v-cb1513f6>5. scanAndLockForPut</a></li><li class="level-2" data-v-cb1513f6><a href="/views/JavaConcurrency/Concurrency-Java-ConcurrentHashMapInJDK1-7.html#_6-get" class="sidebar-link reco-side-_6-get" data-v-cb1513f6>6. Get</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      欢迎来到 Asahina Blog
+    </div> <div class="operation" style="right:90px;bottom:40px;display:none;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="200" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="/bgm/紅蓮華.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="/bgm/紅蓮華.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(/bgm/紅蓮華.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>紅蓮華</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>Lisa</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div><div id="goTop" class="hide-cat" data-v-bf92849a></div></div></div>
+    <script src="/assets/js/app.7bf124e2.js" defer></script><script src="/assets/js/3.11415aa8.js" defer></script><script src="/assets/js/1.f9d84a83.js" defer></script><script src="/assets/js/51.919d0154.js" defer></script>
+  </body>
+</html>
